@@ -1,6 +1,5 @@
 import { StatusCodes } from "http-status-codes"
-
-
+import Job from "../models/JobModel.js";
 
 export const getAllJobs = async (req, res) => {
 
@@ -8,8 +7,8 @@ export const getAllJobs = async (req, res) => {
 }
 
 export const createJob = async (req, res) => {
-
- res.status(StatusCodes.CREATED).json({msg: "job created"})
+  const job = await Job.create(req.body);
+ res.status(StatusCodes.CREATED).json({job})
 }
 
 export const getJob = async (req, res) => {
