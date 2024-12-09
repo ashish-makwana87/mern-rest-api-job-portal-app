@@ -1,5 +1,6 @@
 import { StatusCodes } from "http-status-codes"
 import Job from "../models/JobModel.js";
+import { NotFoundError } from "../errors/customErrors.js";
 
 export const getAllJobs = async (req, res) => {
   const allJobs = await Job.find({})
@@ -9,6 +10,7 @@ export const getAllJobs = async (req, res) => {
 
 export const createJob = async (req, res) => {
  const job = await Job.create(req.body);
+
  res.status(StatusCodes.CREATED).json({job});
 };
 
@@ -18,7 +20,7 @@ export const getJob = async (req, res) => {
   const job = await Job.findById(id);
 
   if(!job) {
-    res.status(StatusCodes.NOT_FOUND).json({msg: `No job existed with Id: ${id}`})
+    throw new NotFoundError(`No job existed with Id: ${id}`);
   }
 
  res.status(StatusCodes.OK).json({job})
@@ -32,7 +34,7 @@ export const updateJob = async (req, res) => {
 const updatedJob = await Job.findByIdAndUpdate(id, req.body, {new: true})
 
  if(!updatedJob) {
-  res.status(StatusCodes.NOT_FOUND).json({msg: `No job existed with Id: ${id}`})
+  throw new NotFoundError(`No job existed with Id: ${id}`);
 }
 
  res.status(StatusCodes.OK).json({msg: "job updated", job: updatedJob})
@@ -44,7 +46,7 @@ export const deleteJob = async (req, res) => {
   const deletedJob = await Job.findByIdAndDelete(id);
 
   if(!deletedJob) {
-    res.status(StatusCodes.NOT_FOUND).json({msg: `No job existed with Id: ${id}`})
+    throw new NotFoundError(`No job existed with Id: ${id}`);
   }
 
  res.status(StatusCodes.OK).json({msg: "job deleted"})
