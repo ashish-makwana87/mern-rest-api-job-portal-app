@@ -16,7 +16,8 @@ app.get("/", (req, res) => {
   res.send("My MERN app");
 });
 
-app.use("/api/v1/jobs", jobRouter);
+
+app.use("/api/v1/jobs", jobRouter)
 
 app.use(notFound);
 app.use(errorHandler);

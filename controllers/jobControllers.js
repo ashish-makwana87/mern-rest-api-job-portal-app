@@ -26,13 +26,28 @@ export const getJob = async (req, res) => {
 
 
 export const updateJob = async (req, res) => {
+ 
+ const {id} = req.params; 
+ 
+const updatedJob = await Job.findByIdAndUpdate(id, req.body, {new: true})
 
- res.status(StatusCodes.OK).json({msg: "update job"})
+ if(!updatedJob) {
+  res.status(StatusCodes.NOT_FOUND).json({msg: `No job existed with Id: ${id}`})
+}
+
+ res.status(StatusCodes.OK).json({msg: "job updated", job: updatedJob})
 };
 
 export const deleteJob = async (req, res) => {
+  const { id } = req.params;
+  
+  const deletedJob = await Job.findByIdAndDelete(id);
 
- res.status(StatusCodes.OK).json({msg: "delete job"})
+  if(!deletedJob) {
+    res.status(StatusCodes.NOT_FOUND).json({msg: `No job existed with Id: ${id}`})
+  }
+
+ res.status(StatusCodes.OK).json({msg: "job deleted"})
 };
 
 
