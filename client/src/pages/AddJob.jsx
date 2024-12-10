@@ -1,7 +1,7 @@
-import React from "react";
+
 
 function AddJob() {
-  return <div>AddJob</div>;
+  return <div>ddd</div>;
 }
 
 export default AddJob;

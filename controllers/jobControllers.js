@@ -29,7 +29,7 @@ export const getJob = async (req, res) => {
 
 export const updateJob = async (req, res) => {
  
- const {id} = req.params; 
+const {id} = req.params; 
  
 const updatedJob = await Job.findByIdAndUpdate(id, req.body, {new: true})
 
