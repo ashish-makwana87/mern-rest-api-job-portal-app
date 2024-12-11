@@ -4,7 +4,7 @@ import { validateIdParams, validateJobInputs } from "../middlewares/validationMi
 
 const router = express.Router();
 
-router.route('/').get(getAllJobs).post(validateJobInputs, createJob)
-router.route('/:id').get(validateIdParams, getJob).patch(validateIdParams, updateJob).delete(validateIdParams, deleteJob)
+router.route('/').get(getAllJobs).post(validateJobInputs, createJob);
+router.route('/:id').get(validateIdParams, getJob).patch(validateIdParams, updateJob).delete(validateIdParams, deleteJob);
 
 export default router;
