@@ -64,3 +64,10 @@ export const validateRegisterInputs = validationErrors([
   }
  }),
 ])
+
+
+export const validateLoginInputs = validationErrors([
+ body('email').notEmpty().withMessage('Please provide an email').isEmail().withMessage('Incorrect email format'),
+ body('password').notEmpty().withMessage('Please provide password')
+])
+
