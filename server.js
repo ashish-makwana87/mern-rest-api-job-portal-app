@@ -7,9 +7,12 @@ import notFound from "./middlewares/notFound.js";
 import errorHandler from "./middlewares/errorHandler.js";
 import jobRouter from "./routes/jobRouter.js";
 import authRouter from './routes/authRouter.js';
+import { authenticateUser } from "./middlewares/authMiddleware.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
+app.use(cookieParser())
 app.use(morgan("dev"));
 app.use(express.json());
 
@@ -18,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/api/v1/auth', authRouter);
-app.use("/api/v1/jobs", jobRouter);
+app.use("/api/v1/jobs", authenticateUser, jobRouter);
 
 app.use(notFound);
 app.use(errorHandler);
