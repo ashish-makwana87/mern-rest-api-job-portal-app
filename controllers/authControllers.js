@@ -2,6 +2,7 @@ import { StatusCodes } from "http-status-codes";
 import User from "../models/userModel.js";
 import { comparePassword, hashPassword } from "../utils/passwordUtils.js";
 import { UnauthenticatedError } from "../errors/customErrors.js";
+import { createJWT } from "../utils/tokenUtils.js";
 
 
 export const registerUser = async (req, res) => {
@@ -27,17 +28,21 @@ export const loginUser = async (req, res) => {
  const { email, password } = req.body;
 
  const user = await User.findOne({ email })
- 
- if(!user) {
+
+ if (!user) {
   throw new UnauthenticatedError('This email is not registered with us')
  }
- 
+
  const validPassword = await comparePassword(password, user.password);
 
- if(!validPassword) {
+ if (!validPassword) {
   throw new UnauthenticatedError('Wrong password')
  }
 
- res.status(StatusCodes.OK).json({ msg: 'success' });
+ const token = createJWT({ userId: user._id, role: user.role })
+ const oneDay = 1000 * 60 * 60 * 24;
+
+ res.cookie('token', token, { httpOnly: true, expires: new Date(Date.now() + oneDay), secure: process.env.NODE_ENV === 'production' })
+ res.status(StatusCodes.OK).json({ msg: 'success', token });
 };
 
