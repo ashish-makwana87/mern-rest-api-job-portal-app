@@ -3,14 +3,18 @@ import Job from "../models/jobModel.js";
 import { NotFoundError } from "../errors/customErrors.js";
 
 export const getAllJobs = async (req, res) => {
-  console.log(req.user);
+  
+  const {userId} = req.user;
 
-  const allJobs = await Job.find({})
+  const allJobs = await Job.find({createdBy: userId})
 
   res.status(StatusCodes.OK).json({ totalJobs: allJobs.length, allJobs })
 };
 
 export const createJob = async (req, res) => {
+  const {userId} = req.user;
+  req.body.createdBy = userId;
+  
   const job = await Job.create(req.body);
 
   res.status(StatusCodes.CREATED).json({ job });
