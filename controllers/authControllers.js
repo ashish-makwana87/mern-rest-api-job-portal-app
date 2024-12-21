@@ -47,9 +47,8 @@ export const loginUser = async (req, res) => {
  res.status(StatusCodes.OK).json({ msg: 'success' });
 };
 
-export const logoutUser = async (req, res) => {
-
- res.cookie('token', 'random', { httpOnly: true, expires: new Date(Date.now())});
- res.status(StatusCodes.OK).json({msg: "logged out successfully"})
-
+export const logoutUser = (req, res) => {
+ 
+ res.cookie('token', 'random', { httpOnly: true, expires: new Date(Date.now()), secure: process.env.NODE_ENV === 'production' } );
+ res.status(StatusCodes.OK).json({msg: "logged out successfully"});
 }

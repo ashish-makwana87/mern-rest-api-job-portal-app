@@ -1,7 +1,7 @@
 import { BadRequestError, UnauthenticatedError } from "../errors/customErrors.js";
 import { verifyToken } from "../utils/tokenUtils.js";
 
-export const authenticateUser = async (req, res, next) => {
+export const authenticateUser = (req, res, next) => {
 
  const { token } = req.cookies;
 

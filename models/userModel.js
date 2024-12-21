@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-
+ 
 const UserSchema = new mongoose.Schema({
  name: String,
  email: String,
@@ -17,4 +17,13 @@ const UserSchema = new mongoose.Schema({
  }
 });
 
-export default mongoose.model('User', UserSchema)
+
+UserSchema.methods.toJSON = function() {
+ 
+  let object = this.toObject();
+  delete object.password; 
+
+  return object;
+}
+
+export default mongoose.model('User', UserSchema);

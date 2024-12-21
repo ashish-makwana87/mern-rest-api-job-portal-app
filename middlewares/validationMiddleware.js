@@ -85,3 +85,19 @@ export const validateLoginInputs = validationErrors([
  body('password').notEmpty().withMessage('Please provide password')
 ])
 
+
+export const validateUpdateUserInputs = validationErrors([
+ body('name').notEmpty().withMessage('Please provide name'),
+ body('lastName').notEmpty().withMessage('Please provide last name'),
+ body('location').notEmpty().withMessage('Please provide location'),
+ body('email').notEmpty().withMessage('Please provide an email').isEmail().withMessage('Incorrect email format').custom(async (value, {req}) => {
+
+  const user = await User.findOne({ email: value });
+  
+  const {userId} = req.user;
+
+  if (user && user._id.toString() !== userId ) {
+   throw new Error('Email already exists')
+  }
+ }),
+])
