@@ -1,4 +1,3 @@
-import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   AddJob,
@@ -13,6 +12,7 @@ import {
   SiteLayout,
   Stats,
 } from "./pages";
+import {action as registerAction} from './pages/Register'
 
 const router = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { index: true, element: <Landing /> },
-      { path: "register", element: <Register /> },
+      { path: "register", element: <Register />, action: registerAction },
       { path: "login", element: <Login /> },
       {
         path: "dashboard",

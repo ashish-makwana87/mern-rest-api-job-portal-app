@@ -1,10 +1,9 @@
-import React from "react";
 import { Logo } from "../components";
 import { Link } from "react-router-dom";
 
 function Landing() {
   return (
-    <section className=''>
+    <section>
       <nav className='bg-[#ebebeb] py-6'>
         <div className='alignment'>
           <Logo />

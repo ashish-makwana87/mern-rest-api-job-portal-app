@@ -33,6 +33,10 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      "react/prop-types": "off",
+    },
+    options: {
+      "@typescript-eslint/no-unused-vars": "off",
     },
   },
 ]

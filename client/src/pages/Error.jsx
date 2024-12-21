@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Link, useRouteError } from "react-router-dom";
 
 function Error() {
@@ -10,10 +10,10 @@ function Error() {
       <div className='alignment mt-24 flex flex-col gap-2 justify-center items-center'>
         <h1 className='text-center'>Page not found</h1>
         <p className='text-center'>
-          We could not find the page you are looking for
+          We could not find the page you are looking for.
         </p>
         <div className='mt-8 mx-auto'>
-          <Link to='/dashboard' className='btn'>
+          <Link to='/' className='btn'>
             Back to Home
           </Link>
         </div>
@@ -22,8 +22,13 @@ function Error() {
   }
 
   return (
-    <div>
-      <h2>{error.status}</h2>
+    <div className='alignment mt-24 flex flex-col gap-2 justify-center items-center'>
+      <h2 className='text-center'>{error.status}</h2>
+      <div className='mt-8 mx-auto'>
+          <Link to='/' className='btn'>
+            Back to Home
+          </Link>
+        </div>
     </div>
   );
 }
