@@ -11,7 +11,6 @@ import authRouter from './routes/authRouter.js';
 import userRouter from './routes/userRouter.js';
 import { authenticateUser } from "./middlewares/authMiddleware.js";
 
-
 const app = express();
 
 app.use(cookieParser())

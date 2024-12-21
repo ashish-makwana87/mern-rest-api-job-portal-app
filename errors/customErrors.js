@@ -24,11 +24,10 @@ export class UnauthenticatedError extends Error {
  }
 }
 
-
-export class UnauthorizedError extends Error {
- constructor(message) {
-  super(message)
-  this.StatusCodes = StatusCodes.FORBIDDEN
- }
+export class ForbiddenError extends Error {
+  constructor(message) {
+    super(message)
+    this.statusCode = StatusCodes.FORBIDDEN
+  }
 }
 
