@@ -1,13 +1,26 @@
 import React, { createContext, useContext, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, redirect, useLoaderData, useNavigate } from "react-router-dom";
 import MobileSidebar from "../components/MobileSidebar";
 import DesktopSidebar from "../components/DesktopSidebar";
 import Navbar from "../components/Navbar";
+import { customFetch } from "../utils/customFetch";
+import { toast } from "react-toastify";
+
+export const loader = async () => {
+  try {
+    const { data } = await customFetch.get("/users/current-user");
+    return data;
+  } catch (error) {
+    return redirect("/");
+  }
+};
 
 const DashboardContext = createContext();
 
 function DashboardLayout() {
-  const user = { name: "ashish" };
+  const { user } = useLoaderData();
+  const navigate = useNavigate();
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -15,7 +28,12 @@ function DashboardLayout() {
   };
 
   const logoutUser = async () => {
-    console.log("logout user");
+    try {
+      await customFetch.get("/auth/logout");
+      return navigate('/');
+    } catch (error) {
+      toast.error(error?.response?.data?.msg);
+    }
   };
 
   return (
@@ -34,7 +52,7 @@ function DashboardLayout() {
         <div>
           <Navbar />
           <div className='mx-auto p-8'>
-            <Outlet />
+            <Outlet context={{ user }} />
           </div>
         </div>
       </main>
