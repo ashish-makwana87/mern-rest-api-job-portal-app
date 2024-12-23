@@ -1,7 +1,7 @@
 
 
 function AddJob() {
-  return <div>ddd</div>;
+  return <div>Add job</div>;
 }
 
 export default AddJob;
