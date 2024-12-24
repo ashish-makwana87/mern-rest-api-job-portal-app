@@ -20,7 +20,7 @@ function JobsContainer() {
      <h4 className='font-medium'>total {totalJobs} job{allJobs.length > 1 && 's'}</h4>
      <div className='mt-6 grid md:grid-cols-2 gap-x-6 gap-y-6'>
       {allJobs.map((job) => {
-       return <SingleJob {...job} />
+       return <SingleJob key={job._id} {...job} />
       })}
      </div>
     </section>

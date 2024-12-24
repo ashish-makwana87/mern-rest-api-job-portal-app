@@ -11,7 +11,7 @@ function DesktopSidebar() {
       className={
         sidebarOpen
           ? "hidden"
-          : "hidden px-6 bg-[#f2f2f2] md:h-[100vh] md:block"
+          : "hidden px-6 bg-[#f2f2f2] md:h-[100%] sticky md:block"
       }
     >
       <div className='mt-6 grid grid-rows-[auto_1fr] gap-y-8'>

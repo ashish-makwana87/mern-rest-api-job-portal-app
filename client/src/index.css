@@ -111,6 +111,20 @@ p {
   background: #151515;
 }
 
+.delete-btn {
+  background: #a50000;
+  color: #ffffff;
+  padding: 0.5rem 0.7rem;
+  border: none;
+  border-radius: 0.25rem;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #1e1e1e;
+}
+
 .active {
   background: #6671e5;
   color: rgb(255, 255, 255);
@@ -154,13 +168,11 @@ p {
   h3 {
     font-size: 1.85rem;
     line-height: 2.25rem;
-    margin-bottom: 1rem;
   }
 
   h4 {
     font-size: 1.5rem;
     line-height: 2rem;
-    margin-bottom: 0.8rem;
   }
 
   .btn {
