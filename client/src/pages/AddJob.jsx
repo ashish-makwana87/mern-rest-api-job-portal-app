@@ -4,18 +4,19 @@ import {
   useNavigation,
   useOutletContext,
 } from "react-router-dom";
-import { FormRow } from "../components";
-import { customFetch } from "../utils/customFetch";
+import customFetch from "../utils/customFetch";
 import { toast } from "react-toastify";
-import { response } from "express";
+import { FormRow, FormRowSelect } from "../components";
+import { jobStatusArray, jobTypeArray } from "../utils/constants";
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
-  const data = await Object.fromEntries(formData);
+  const data = Object.fromEntries(formData);
 
   try {
     await customFetch.post("/jobs", data);
     toast.success("Job created successfully");
+
     return redirect("/dashboard/all-jobs");
   } catch (error) {
     toast.error(error?.response?.data?.msg);
@@ -24,7 +25,6 @@ export const action = async ({ request }) => {
 };
 
 function AddJob() {
-  const { user } = useOutletContext();
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
 
@@ -33,9 +33,21 @@ function AddJob() {
       <Form method='post'>
         <h2>Add Job</h2>
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6'>
-          <FormRow type='text' name='company' />
-          <FormRow type='text' name='position' />
-          <FormRow type='text' name='jobLocation' labelText='location' />
+          <FormRow name='company' type='text' />
+          <FormRow name='position' type='text' />
+          <FormRow name='jobLocation' type='text' labelText='location' />
+          <FormRowSelect
+            data={jobStatusArray}
+            name='jobStatus'
+            defaultValue='pending'
+            labelText='Status'
+          />
+          <FormRowSelect
+            data={jobTypeArray}
+            name='jobType'
+            defaultValue='full-time'
+            labelText='Type'
+          />
         </div>
         <button
           type='submit'

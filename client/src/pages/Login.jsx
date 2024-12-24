@@ -6,7 +6,7 @@ import {
   useActionData,
   useNavigation,
 } from "react-router-dom";
-import { customFetch } from "../utils/customFetch";
+import customFetch from "../utils/customFetch";
 import { toast } from "react-toastify";
 
 export const action = async ({ request }) => {

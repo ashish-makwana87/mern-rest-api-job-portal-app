@@ -1,17 +1,11 @@
 import React, { createContext, useContext, useState } from "react";
-import {
-  Outlet,
-  redirect,
-  useLoaderData,
-  useNavigate,
-  useNavigation,
-} from "react-router-dom";
+import { Outlet, redirect, useLoaderData, useNavigate, useNavigation } from "react-router-dom";
 import MobileSidebar from "../components/MobileSidebar";
 import DesktopSidebar from "../components/DesktopSidebar";
 import Navbar from "../components/Navbar";
-import { customFetch } from "../utils/customFetch";
+import customFetch from "../utils/customFetch";
 import { toast } from "react-toastify";
-import Loading from "../components/Loading";
+import { Loading } from "../components";
 
 export const loader = async () => {
   try {
@@ -27,11 +21,10 @@ const DashboardContext = createContext();
 function DashboardLayout() {
   const { user } = useLoaderData();
   const navigate = useNavigate();
-  const navigation = useNavigation();
-  const isPageLoading = navigation.state === "loading";
-
+  
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  const navigation = useNavigation();
+  const isPageLoading = navigation.state === 'loading'; 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
@@ -39,12 +32,11 @@ function DashboardLayout() {
   const logoutUser = async () => {
     try {
       await customFetch.get("/auth/logout");
-      return navigate("/");
+      return navigate('/');
     } catch (error) {
       toast.error(error?.response?.data?.msg);
     }
   };
-
 
   return (
     <DashboardContext.Provider
@@ -62,7 +54,7 @@ function DashboardLayout() {
         <div>
           <Navbar />
           <div className='mx-auto p-8'>
-            {isPageLoading ? <Loading /> : <Outlet context={{ user }} />}
+          {isPageLoading ? <Loading /> : <Outlet context={{ user }} />}  
           </div>
         </div>
       </main>
