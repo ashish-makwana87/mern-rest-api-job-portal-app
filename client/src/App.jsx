@@ -4,6 +4,7 @@ import {
   Admin,
   AllJobs,
   DashboardLayout,
+  EditJob,
   Error,
   Landing,
   Login,
@@ -17,6 +18,7 @@ import { action as loginAction } from "./pages/Login";
 import { action as addJobAction } from "./pages/AddJob";
 import { loader as dashboardLoader } from "./pages/DashboardLayout";
 import { loader as jobsLoader } from "./pages/AllJobs";
+import {loader as editJobLoader} from './pages/EditJob';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,7 @@ const router = createBrowserRouter([
           { index: true, element: <AddJob />, action: addJobAction},
           { path: "stats", element: <Stats /> },
           { path: "all-jobs", element: <AllJobs />, loader: jobsLoader },
+          {path: 'edit-job/:id', element: <EditJob />, loader: editJobLoader },
           { path: "profile", element: <Profile /> },
           { path: "admin", element: <Admin /> },
         ],

@@ -33,7 +33,7 @@ function SingleJob({_id, company, position, jobLocation, jobType, createdAt, job
         {jobStatus}</p>
      </div>
      <footer className='flex gap-x-2 mt-3 lg:mt-4'>
-      <Link to='/dashboard/profile' className='btn capitalize'>edit</Link>
+      <Link to={`/dashboard/edit-job/${_id}`} className='btn capitalize'>edit</Link>
       <Form method="post">
       <button type="submit" className='delete-btn capitalize'>Delete</button>
       </Form>
