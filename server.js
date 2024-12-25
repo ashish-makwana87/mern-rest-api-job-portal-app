@@ -7,13 +7,18 @@ import cookieParser from "cookie-parser";
 import notFound from "./middlewares/notFound.js";
 import errorHandler from "./middlewares/errorHandler.js";
 import jobRouter from "./routes/jobRouter.js";
-import authRouter from './routes/authRouter.js';
-import userRouter from './routes/userRouter.js';
+import authRouter from "./routes/authRouter.js";
+import userRouter from "./routes/userRouter.js";
 import { authenticateUser } from "./middlewares/authMiddleware.js";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
-app.use(cookieParser())
+app.use(express.static(path.resolve(__dirname, './public')));
+app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(express.json());
 
@@ -34,9 +39,8 @@ try {
   await mongoose.connect(process.env.MONGO_URL);
 
   app.listen(port, () => {
-    console.log(`Port is listening on port ${port}`)
-  })
-
+    console.log(`Port is listening on port ${port}`);
+  });
 } catch (error) {
   console.log(error);
   process.exit(1);
