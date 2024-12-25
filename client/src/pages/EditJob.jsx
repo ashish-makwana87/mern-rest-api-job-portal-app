@@ -1,7 +1,6 @@
-import React from 'react'
 import customFetch from '../utils/customFetch'
 import { toast } from 'react-toastify';
-import { Form, useLoaderData, useNavigation } from 'react-router-dom';
+import { Form, redirect, useLoaderData, useNavigation } from 'react-router-dom';
 import { FormRow, FormRowSelect } from "../components";
 import { jobStatusArray, jobTypeArray } from "../utils/constants";
 
@@ -12,16 +11,29 @@ export const loader = async ({params}) => {
   return data; 
  } catch (error) {
   toast.error(error?.response?.data?.msg)
-  return error
+  return redirect('/dashboard/all-jobs')
  }
+}
+
+export const action = async ({request, params}) => {
+ 
+  const formData = await request.formData(); 
+  const data = Object.fromEntries(formData);
+
+try {
+  await customFetch.patch(`/jobs/${params.id}`, data)
+  toast.success('Job updated successfully')
+  return redirect('/dashboard/all-jobs');
+} catch (error) {
+  toast.error(error?.response?.data?.msg);
+  return redirect('/dashboard/all-jobs');
+}
 }
 
 function EditJob() {
  const {job} = useLoaderData();
  const {company, position, jobType, jobLocation, jobStatus} = job;
 
- console.log(job);
- 
  const navigation = useNavigation();
  const isSubmitting = navigation.state === 'submitting';
 

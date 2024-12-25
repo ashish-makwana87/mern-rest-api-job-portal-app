@@ -18,7 +18,6 @@ const JobsContext = createContext();
 
 function AllJobs() {
   const { allJobs, totalJobs } = useLoaderData();
-  console.log(allJobs);
 
   return (
     <JobsContext.Provider value={{ allJobs, totalJobs }}>

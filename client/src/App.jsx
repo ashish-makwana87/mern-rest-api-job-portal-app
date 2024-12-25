@@ -18,7 +18,8 @@ import { action as loginAction } from "./pages/Login";
 import { action as addJobAction } from "./pages/AddJob";
 import { loader as dashboardLoader } from "./pages/DashboardLayout";
 import { loader as jobsLoader } from "./pages/AllJobs";
-import {loader as editJobLoader} from './pages/EditJob';
+import { loader as editJobLoader } from "./pages/EditJob";
+import { action as editJobAction } from "./pages/EditJob";
 
 const router = createBrowserRouter([
   {
@@ -34,10 +35,15 @@ const router = createBrowserRouter([
         element: <DashboardLayout />,
         loader: dashboardLoader,
         children: [
-          { index: true, element: <AddJob />, action: addJobAction},
+          { index: true, element: <AddJob />, action: addJobAction },
           { path: "stats", element: <Stats /> },
           { path: "all-jobs", element: <AllJobs />, loader: jobsLoader },
-          {path: 'edit-job/:id', element: <EditJob />, loader: editJobLoader },
+          {
+            path: "edit-job/:id",
+            element: <EditJob />,
+            loader: editJobLoader,
+            action: editJobAction,
+          },
           { path: "profile", element: <Profile /> },
           { path: "admin", element: <Admin /> },
         ],
