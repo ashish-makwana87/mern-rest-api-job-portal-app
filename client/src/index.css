@@ -139,9 +139,18 @@ p {
   color: #6671e5;
 }
 
+.menu-item-mobile {
+  padding: 0.5rem 0.7rem;
+}
+
+.menu-item-mobile:hover {
+  color: #6671e5;
+}
+
 .active:hover {
   color: rgb(252, 252, 252);
 }
+
 
 /* ============================================
                 MEDIA QUERIES 

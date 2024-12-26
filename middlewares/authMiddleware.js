@@ -14,6 +14,7 @@ export const authenticateUser = (req, res, next) => {
 
   try {
     const { userId, role } = verifyToken(token);
+
     req.user = { userId, role };
     next();
   } catch (error) {
@@ -22,7 +23,6 @@ export const authenticateUser = (req, res, next) => {
 };
 
 export const protectedRoute = (...roles) => {
-
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
       throw new ForbiddenError("You are not authorized to access this route");
@@ -30,4 +30,12 @@ export const protectedRoute = (...roles) => {
 
     next();
   };
+};
+
+export const checkTestUser = (req, res, next) => {
+  if (req.user.userId === "676d56d681a61a3020e95899") {
+    throw new BadRequestError("Test user. For viewing purpose only");
+  }
+
+  next();
 };

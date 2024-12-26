@@ -19,7 +19,7 @@ function MobileSidebar() {
         <button type='button' onClick={toggleSidebar} className='text-red mt-6'>
           <IoCloseCircleSharp className='h-8 w-8 text-black' />
         </button>
-        <div className='flex flex-col gap-y-4 mt-6'>
+        <div className='flex flex-col gap-y-3 mt-6'>
           {links.map((item) => {
             const { path, text, icon } = item;
 
@@ -27,7 +27,7 @@ function MobileSidebar() {
               <NavLink
               key={text}
                 to={path}
-                className='flex items-center gap-x-2 text-xl hover:text-red-700'
+                className='menu-item-mobile flex items-center gap-x-2 text-xl'
                 onClick={toggleSidebar}
                 end
               >
