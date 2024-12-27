@@ -23,7 +23,7 @@ function Stats() {
     <section>
       <StatsContainer defaultStats={defaultStats} />
       {monthlyApplications.length > 1 && (
-        <ChartContainer monthlyApplications={monthlyApplications} />
+        <ChartContainer data={monthlyApplications} />
       )}
     </section>
   );
