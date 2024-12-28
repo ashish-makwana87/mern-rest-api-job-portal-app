@@ -4,10 +4,15 @@ import { toast } from "react-toastify";
 import { useLoaderData } from "react-router-dom";
 import { createContext, useContext } from "react";
 
-export const loader = async () => {
+
+export const loader = async ({request}) => {
+ 
+  const params = Object.fromEntries([...new URL(request.url).searchParams.entries()])
+  console.log(params);
+  
   try {
-    const { data } = await customFetch.get("/jobs");
-    return data;
+    const { data } = await customFetch.get("/jobs", {params});
+    return {data, searchValues: {...params}};
   } catch (error) {
     toast.error(error?.response?.data?.msg);
     return error;
@@ -17,10 +22,10 @@ export const loader = async () => {
 const JobsContext = createContext();
 
 function AllJobs() {
-  const { allJobs, totalJobs } = useLoaderData();
+  const { data: {allJobs, totalJobs}, searchValues } = useLoaderData();
 
   return (
-    <JobsContext.Provider value={{ allJobs, totalJobs }}>
+    <JobsContext.Provider value={{ allJobs, totalJobs, searchValues }}>
       <SearchContainer />
       <JobsContainer />
     </JobsContext.Provider>

@@ -6,3 +6,4 @@ export { default as SearchContainer } from "./SearchContainer";
 export { default as JobsContainer } from "./JobsContainer";
 export { default as StatsContainer } from "./StatsContainer";
 export { default as ChartContainer } from "./ChartContainer";
+export { default as SearchRow } from "./SearchRow";
