@@ -33,31 +33,31 @@ function Register() {
           labelText='first name'
           name='name'
           type='text'
-          defaultValue='roger'
+          
         />
         <FormRow
           labelText='last name'
           name='lastName'
           type='text'
-          defaultValue='federer'
+          
         />
         <FormRow
           labelText='location'
           name='location'
           type='text'
-          defaultValue='earth'
+         
         />
         <FormRow
           labelText='email'
           name='email'
           type='email'
-          defaultValue='roger@gmail.com'
+         
         />
         <FormRow
           labelText='password'
           name='password'
           type='password'
-          defaultValue='secret'
+          
         />
         <button type='submit' className='btn mt-2'>
           {isSubmitting ? "Submitting" : "Submit"}

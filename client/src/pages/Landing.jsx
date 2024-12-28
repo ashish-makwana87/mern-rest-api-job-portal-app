@@ -13,11 +13,8 @@ function Landing() {
       </nav>
       <div className='alignment grid gap-y-4 mt-12'>
         <h1>Job portal app</h1>
-        <p>
-          Lorem, ipsunn dolor sit amet consectetur adipisicing elit. Dolore
-          pariatur ipsam quibusdam eum possimus. Quaerat nostrum voluptates
-          sapiente quis quia quasi optio obcaecati dolores laborum distinctio
-          deleniti dicta, perspiciatis laudantium?
+        <p className="text-lg">
+          Some of the libraries used are Bcryptjs, cloudinary, jsonwebtoken, multer, helmet, express-validator, dayjs, recharts, axios, react-router, react-toastify, tailwind css and so on. 
         </p>
         <div className='flex gap-x-4'>
           <Link to='/register' className='btn'>
