@@ -16,7 +16,7 @@ const JobSchema = new mongoose.Schema(
       default: JOB_TYPE.FULL_TIME,
     },
     jobLocation: { type: String, default: "Bengaluru" },
-    createdBy: { type: mongoose.Types.ObjectId, ref: 'User' }
+    createdBy: { type: mongoose.Types.ObjectId, ref: "User" },
   },
   { timestamps: true }
 );

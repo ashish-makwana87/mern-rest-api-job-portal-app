@@ -7,7 +7,7 @@ import {
 import { JOB_STATUS, JOB_TYPE } from "../utils/constants.js";
 import mongoose from "mongoose";
 import User from "../models/userModel.js";
-import Job from "../models/jobModel.js";
+import Job from "../models/jobsModel.js";
 
 const validationErrors = (values) => {
   return [
