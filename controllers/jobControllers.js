@@ -1,8 +1,8 @@
 import { StatusCodes } from "http-status-codes";
-import Job from "../models/jobModel.js";
 import { NotFoundError } from "../errors/customErrors.js";
 import mongoose from "mongoose";
 import dayjs from "dayjs";
+import Job from "../models/jobModel.js";
 
 export const getAllJobs = async (req, res) => {
   const { userId } = req.user;

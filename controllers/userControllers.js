@@ -1,8 +1,8 @@
 import { StatusCodes } from "http-status-codes";
-import Job from "../models/jobModel.js";
 import User from "../models/userModel.js";
 import { unlink } from "fs/promises";
 import cloudinary from "cloudinary";
+import Job from "../models/jobModel.js";
 
 export const getCurrentUser = async (req, res) => {
   const { userId } = req.user;
