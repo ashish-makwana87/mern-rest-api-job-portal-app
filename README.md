@@ -1,6 +1,7 @@
 ## MERN Job Portal App
 
 **Project URL:**
+https://mern-job-portal-app-u93l.onrender.com/
 
 Note: Please allow around 50 seconds for project URL to load as Render spins down after 15 mins of inactivity.
 
@@ -17,10 +18,10 @@ Note: Please allow around 50 seconds for project URL to load as Render spins dow
 - Bar chart to display application stats. 
 - Project deployed on Render.
 
-<a href='' target='_blank'>
+<a href='https://mern-job-portal-app-u93l.onrender.com/' target='_blank'>
 <img src='./public/app.jpg' width='700' alt='job portal app image'>
 </a>
 
-<a href='' target='_blank'>
+<a href='https://mern-job-portal-app-u93l.onrender.com/' target='_blank'>
 <img src='./public/app-admin.jpg' width='700' alt='job portal app admin image'>
 </a>
