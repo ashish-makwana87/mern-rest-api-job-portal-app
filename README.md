@@ -15,6 +15,7 @@ Note: Please allow around 50 seconds for project URL to load as Render spins dow
 - Image upload option for all registered users. 
 - Storing all user avatars on Cloudinary. 
 - Bar chart to display application stats. 
+- Project deployed on Render.
 
 <a href='' target='_blank'>
 <img src='./public/app.jpg' width='700' alt='job portal app image'>

@@ -29,36 +29,11 @@ function Register() {
         className='flex flex-col gap-y-4 shadow-2xl p-8 justify-center mx-auto md:w-96'
       >
         <h2 className='text-center mb-4'>Register</h2>
-        <FormRow
-          labelText='first name'
-          name='name'
-          type='text'
-          
-        />
-        <FormRow
-          labelText='last name'
-          name='lastName'
-          type='text'
-          
-        />
-        <FormRow
-          labelText='location'
-          name='location'
-          type='text'
-         
-        />
-        <FormRow
-          labelText='email'
-          name='email'
-          type='email'
-         
-        />
-        <FormRow
-          labelText='password'
-          name='password'
-          type='password'
-          
-        />
+        <FormRow labelText='first name' name='name' type='text' />
+        <FormRow labelText='last name' name='lastName' type='text' />
+        <FormRow labelText='location' name='location' type='text' />
+        <FormRow labelText='email' name='email' type='email' />
+        <FormRow labelText='password' name='password' type='password' />
         <button type='submit' className='btn mt-2'>
           {isSubmitting ? "Submitting" : "Submit"}
         </button>
