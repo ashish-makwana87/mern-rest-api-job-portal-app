@@ -1,10 +1,11 @@
 import { useJobsContext } from '../pages/AllJobs';
+import PaginationContainer from './PaginationContainer';
 import SingleJob from './SingleJob';
 
 
 function JobsContainer() {
   
- const {allJobs, totalJobs} = useJobsContext();
+ const {allJobs, totalJobs, totalPages, currentPage} = useJobsContext();
  
 
  if (allJobs.length < 1) {
@@ -23,6 +24,7 @@ function JobsContainer() {
        return <SingleJob key={job._id} {...job} />
       })}
      </div>
+     {totalPages > 1 && <PaginationContainer />}
     </section>
   )
 }

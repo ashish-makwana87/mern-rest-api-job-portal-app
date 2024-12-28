@@ -125,6 +125,30 @@ p {
   background: #1e1e1e;
 }
 
+.page-btn {
+  background: #8a8a8a;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.page-btn:hover {
+  background: #535353;
+}
+
+.active-page {
+  background: #b81ddb;
+  color: #ffffff;
+  padding: 0.5rem 0.7rem;
+  border: none;
+  border-radius: 0.25rem;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
 .active {
   background: #6671e5;
   color: rgb(255, 255, 255);
