@@ -1,25 +1,21 @@
-import { redirect } from "react-router-dom"
-import customFetch from "../utils/customFetch"
-import { toast } from "react-toastify"
+import { redirect } from "react-router-dom";
+import customFetch from "../utils/customFetch";
+import { toast } from "react-toastify";
 
-
-export const action = async ({params}) => {
- 
+export const action = async ({ params }) => {
   try {
-    await customFetch.delete(`/jobs/${params.id}`)
-    toast.success('Job deleted successfully')
+    await customFetch.delete(`/jobs/${params.id}`);
+    toast.success("Job deleted successfully");
   } catch (error) {
-    toast.error(error?.response?.data?.msg)
+    toast.error(error?.response?.data?.msg);
     console.log(error?.response?.data?.msg);
   }
 
-  return redirect('/dashboard/all-jobs')
-}
+  return redirect("/dashboard/all-jobs");
+};
 
 function DeleteJob() {
-  return (
-    <div>DeleteJob</div>
-  )
+  return <div>DeleteJob</div>;
 }
 
-export default DeleteJob
+export default DeleteJob;

@@ -4,7 +4,6 @@ import mongoose from "mongoose";
 import dayjs from "dayjs";
 import Job from "../models/jobsModel.js";
 
-
 export const getAllJobs = async (req, res) => {
   const { userId } = req.user;
   const { search, jobStatus, jobType, sort, page } = req.query;
