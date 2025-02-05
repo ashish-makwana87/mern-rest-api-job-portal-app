@@ -1,9 +1,8 @@
 ## MERN Job Portal App
 
 **Project URL:**
-https://mern-job-portal-app-u93l.onrender.com/
+https://mern-job-portal-app-v11.vercel.app/
 
-Note: Please allow around 50 seconds for project URL to load as Render spins down after 15 mins of inactivity.
 
 **Key Features:**
 
