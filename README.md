@@ -15,7 +15,7 @@ https://mern-job-portal-app-v11.vercel.app/
 - Image upload option for all registered users. 
 - Storing all user avatars on Cloudinary. 
 - Bar chart to display application stats. 
-- Project deployed on Render.
+- Project deployed on Vercel.
 
 <a href='https://mern-job-portal-app-u93l.onrender.com/' target='_blank'>
 <img src='./public/app.jpg' width='700' alt='job portal app image'>
