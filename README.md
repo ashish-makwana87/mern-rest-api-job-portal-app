@@ -1,7 +1,7 @@
 ## MERN Job Portal App
 
 **Project URL:**
-https://mern-job-portal-app-v11.vercel.app/
+https://mern-job-app-vercel-v2.vercel.app
 
 
 **Key Features:**
