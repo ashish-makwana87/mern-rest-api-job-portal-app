@@ -1,11 +1,11 @@
-## MERN Job Portal App
+## MERN REST API Job Portal App
 
 **Project URL:**
 https://mern-job-app-vercel-v2.vercel.app
 
 
 **Key Features:**
-
+- Backend infrastructure supported by REST API priciples
 - Secure login functionality with the use of http-only cookies and JWT verification.
 - Validation middleware/express-validator setup to check for user inputs, job id params.
 - Storing hashed user passwords in MongoDB for added safety.
