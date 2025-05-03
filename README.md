@@ -17,10 +17,10 @@ https://mern-job-app-vercel-v2.vercel.app
 - Bar chart to display application stats. 
 - Project deployed on Vercel.
 
-<a href='https://mern-job-portal-app-u93l.onrender.com/' target='_blank'>
+<a href='https://mern-job-app-vercel-v2.vercel.app' target='_blank'>
 <img src='./public/app.jpg' width='700' alt='job portal app image'>
 </a>
 
-<a href='https://mern-job-portal-app-u93l.onrender.com/' target='_blank'>
+<a href='https://mern-job-app-vercel-v2.vercel.app' target='_blank'>
 <img src='./public/app-admin.jpg' width='700' alt='job portal app admin image'>
 </a>
