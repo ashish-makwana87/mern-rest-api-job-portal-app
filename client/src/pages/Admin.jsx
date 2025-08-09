@@ -12,7 +12,7 @@ export const loader = async () => {
     toast.error("Forbidden. Admin only route");
     return redirect("/dashboard");
   }
-};
+}; 
 
 function Admin() {
   const { users, jobs } = useLoaderData();

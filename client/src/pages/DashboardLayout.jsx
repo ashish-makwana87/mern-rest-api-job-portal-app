@@ -63,8 +63,9 @@ function DashboardLayout() {
     </DashboardContext.Provider>
   );
 }
-
+ 
 export const useGlobalContext = () => {
+  
   return useContext(DashboardContext);
 };
 

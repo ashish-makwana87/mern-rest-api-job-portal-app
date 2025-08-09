@@ -15,7 +15,7 @@ function SearchContainer() {
   const submit = useSubmit();
   
   const debounce = () => {
-    let timeoutId; 
+    let timeoutId;
 
    return (e) => {
     const form = e.currentTarget.form;

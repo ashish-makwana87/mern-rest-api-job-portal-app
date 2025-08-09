@@ -12,7 +12,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 console.log(__dirname);
 
 const app = express();
-
+ 
 try {
  await mongoose.connect(process.env.MONGO_URL)
  const user = await User.findOne({email: 'test@gmail.com'})
@@ -29,8 +29,10 @@ await Job.deleteMany({ createdBy: user._id });
 await Job.create(finalData);
 
  console.log('jobs added successfully');
+ 
  process.exit(0);
 } catch (error) {
  console.log(error);
  process.exit(1);
 }
+
