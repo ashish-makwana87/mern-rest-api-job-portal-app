@@ -25,6 +25,7 @@ function DashboardLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigation = useNavigation();
   const isPageLoading = navigation.state === 'loading'; 
+  
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };

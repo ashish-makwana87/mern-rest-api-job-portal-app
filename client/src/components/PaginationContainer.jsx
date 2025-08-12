@@ -21,10 +21,67 @@ function PaginationContainer() {
     navigate(`${pathname}?${searchParams.toString()}`);
   };
 
+ 
+  const pageButton = ({pageNumber, activeClass}) => {
+
+   return <button
+            key={pageNumber}
+            className={`page-btn ${activeClass && 'active-page'}`}
+            onClick={() => handlePageChange(pageNumber)}
+          >
+            {pageNumber}
+          </button>
+  }
+
+ // displaying page buttons based on number of total pages
+
+ const renderButtons = () => {
+
+  const pageArray = []; 
+  
+  if(totalPages > 4) {
+    
+    //adding first 3 buttons
+    pageArray.push(pageButton({pageNumber: 1, activeClass: currentPage === 1})) 
+    pageArray.push(pageButton({pageNumber: 2, activeClass: currentPage === 2})) 
+    pageArray.push(<span
+            key='dots-1'
+            className={`page-btn`}
+          >
+            ...
+          </span>) 
+    
+    //adding 4th button on condition
+  
+    if(currentPage !== 1 && currentPage !== 2 & currentPage !== totalPages -1 && currentPage !== totalPages) { pageArray.push(pageButton({pageNumber: currentPage, activeClass: true}))}
+    
+    // adding 5th button on condition 
+    if(pageArr.length > 3) {pageArray.push(<span
+            key='dots-2'
+            className={`page-btn`}
+          >
+            ...
+          </span>) }
+
+    //adding last two buttons 
+    pageArray.push(pageButton({pageNumber: totalPages - 1, activeClass: currentPage === totalPages - 1})) 
+    pageArray.push(pageButton({pageNumber: totalPages, activeClass: currentPage === totalPages})) 
+
+  } else {
+   pageArray.push(pageButton({pageNumber: 1, activeClass: currentPage === 1}));  
+pageArray.push(pageButton({pageNumber: 2, activeClass: currentPage === 2})) 
+pageArray.push(pageButton({pageNumber: 3, activeClass: currentPage === 3})) 
+pageArray.push(pageButton({pageNumber: 4, activeClass: currentPage === 4})) 
+  }
+  
+  return pageArray; 
+
+ }
+
   return (
     <div className='mt-8 flex justify-end gap-x-2'>
       <button
-        className='btn'
+        className='arrow-btn'
         onClick={() => {
           let prevPage = currentPage - 1;
 
@@ -34,18 +91,8 @@ function PaginationContainer() {
       >
         <FaArrowLeft />
       </button>
-      {pageArr.map((pageNumber) => {
-        return (
-          <button
-            key={pageNumber}
-            className={`page-btn font-medium md:text-lg `}
-            onClick={() => handlePageChange(pageNumber)}
-          >
-            {pageNumber}
-          </button>
-        );
-      })}
-      <button className="btn" onClick={() => {
+       {renderButtons()}
+      <button className="arrow-btn" onClick={() => {
           let nextPage = currentPage + 1;
 
           if (nextPage > totalPages) nextPage = 1;

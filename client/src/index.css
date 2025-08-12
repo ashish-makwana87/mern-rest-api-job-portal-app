@@ -128,7 +128,9 @@ p {
 .page-btn {
   background: #8a8a8a;
   color: #ffffff;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
   border: none;
   border-radius: 0.25rem;
   text-transform: capitalize;
@@ -139,20 +141,22 @@ p {
   background: #535353;
 }
 
+
 .active-page {
-  background: #b81ddb;
+  background: #6671e5;
+  color: rgb(255, 255, 255);
+}
+
+.arrow-btn {
+  background: #6671e5;
   color: #ffffff;
-  padding: 0.5rem 0.7rem;
+  padding: 0.5rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
   border: none;
   border-radius: 0.25rem;
   text-transform: capitalize;
   cursor: pointer;
-}
-
-.active {
-  background: #6671e5;
-  color: rgb(255, 255, 255);
-  padding: 0.5rem 0.7rem;
 }
 
 .menu-item {
@@ -185,6 +189,14 @@ p {
     font-size: 1.1rem;
     line-height: 1.5rem;
   }
+
+  .page-btn {
+  padding: 0.7rem 1rem;
+}
+
+.arrow-btn {
+  padding: 0.7rem 1rem;
+}
 }
 
 @media screen and (min-width: 1024px) {
