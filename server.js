@@ -37,7 +37,14 @@ app.use(rateLimiter({
   message: "Too many requests received, please try again later."
 }))
 
-app.use(helmet());
+app.use(helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        imgSrc: ["'self'", "data:", "https://res.cloudinary.com"],
+      },
+    },
+  }));
 app.use(xss());
 app.use(mongoSanitize());
 

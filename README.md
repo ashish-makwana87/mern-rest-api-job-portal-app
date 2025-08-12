@@ -2,7 +2,7 @@
 
 
 **Project URL:**
-https://mern-job-app-vercel-v2.vercel.app
+https://mern-job-portal-vercel-v4.vercel.app
 
 
 **Security Package Update:**
@@ -10,7 +10,7 @@ Following essential web security packages have been added recently (August 2025)
 
 - express-rate-limit for DDoS, brute force and abuse. 
 - xss-clean for sanitizing data before it reaches database.
-- helmet for secure HTTP response headers. 
+- helmet for secure HTTP response headers and setting up Content Security Policy. 
 - express-mongo-sanitize for NoSQL injection. 
 
 **Security Features:**
@@ -39,10 +39,10 @@ App features that are part of original project (Dec 2024 - Feb 2025)
 - Project deployed on Vercel. 
 
 
-<a href='https://mern-job-app-vercel-v2.vercel.app' target='_blank'>
+<a href='https://mern-job-portal-vercel-v4.vercel.app/' target='_blank'>
 <img src='./public/app.jpg' width='700' alt='job portal app image'>
 </a>
 
-<a href='https://mern-job-app-vercel-v2.vercel.app' target='_blank'>
+<a href='https://mern-job-portal-vercel-v4.vercel.app/' target='_blank'>
 <img src='./public/app-admin.jpg' width='700' alt='job portal app admin image'>
 </a>

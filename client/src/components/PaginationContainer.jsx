@@ -68,14 +68,12 @@ function PaginationContainer() {
     pageArray.push(pageButton({pageNumber: totalPages, activeClass: currentPage === totalPages})) 
 
   } else {
-   pageArray.push(pageButton({pageNumber: 1, activeClass: currentPage === 1}));  
-pageArray.push(pageButton({pageNumber: 2, activeClass: currentPage === 2})) 
-pageArray.push(pageButton({pageNumber: 3, activeClass: currentPage === 3})) 
-pageArray.push(pageButton({pageNumber: 4, activeClass: currentPage === 4})) 
+   const pageArr = Array.from({length: totalPages}, (_, index) => index + 1)
+
+    pageArr.forEach((pageNum) => pageArray.push(pageButton({pageNumber: pageNum, activeClass: currentPage === pageNum})))
   }
   
   return pageArray; 
-
  }
 
   return (
